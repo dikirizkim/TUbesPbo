@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.infaq.infaqmasjidplus.HelloController">
+  <tabs>
+    <Tab text="Home">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                   <Label layoutX="431.0" layoutY="30.0" text="Silahkan isi uang anda" />
+                   <Label fx:id="saldoLabel" layoutX="340.0" layoutY="105.0" text="Saldo : " />
+                   <TextField fx:id="topUpField" layoutX="340.0" layoutY="57.0" />
+                   <Label fx:id="topUpStatusLabel" layoutX="340.0" layoutY="120.0"/>
+                   <Button layoutX="504.0" layoutY="57.0" mnemonicParsing="false" onAction="#topUpButtonAction" text="Top Up" />
+                   <Button fx:id="masjidButton" layoutX="54.0" layoutY="199.0" mnemonicParsing="false" onAction="#masjidButtonAction" prefHeight="104.0" prefWidth="123.0" text="Masjid" />
+                   <Button fx:id="yatimButton" layoutX="238.0" layoutY="199.0" mnemonicParsing="false" onAction="#yatimButtonAction" prefHeight="104.0" prefWidth="123.0" text="Yatim" />
+                   <Button fx:id="qurbanButton" layoutX="415.0" layoutY="199.0" mnemonicParsing="false" onAction="#qurbanButtonAction" prefHeight="104.0" prefWidth="123.0" text="Qurban" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="masjidTab" text="Masjid">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label  layoutX="54.0" layoutY="51.0" text="Nama Masjid" />
+                  <Label layoutX="54.0" layoutY="121.0" text="Alamat Masjid" />
+
+                  <TextField fx:id="namaField" layoutX="17.0" layoutY="78.0" />
+                  <TextField fx:id="alamatField" layoutX="18.0" layoutY="152.0" />
+                   <Label fx:id="infaqStatusLabel" layoutX="18.0" layoutY="182.0" />
+                  <Button onAction="#tombolRp10000Action" layoutX="31.0" layoutY="254.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="122.0" text="Rp10.000" />
+                  <Button onAction="#tombolRp20000Action" layoutX="167.0" layoutY="254.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="122.0" text="Rp20.000" />
+                  <Button onAction="#tombolRp50000Action" layoutX="300.0" layoutY="254.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="122.0" text="Rp50.000" />
+                  <Button onAction="#tombolRp100000Action" layoutX="436.0" layoutY="254.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="122.0" text="Rp100.000" />
+                  <Label layoutX="179.0" layoutY="186.0" prefHeight="56.0" prefWidth="263.0" text="Mau Sodaqoh Berapa ">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="384.0" layoutY="95.0" text="Saldo Saat Ini " />
+                  <Label fx:id="saldoLabel1" layoutX="384.0" layoutY="124.0" prefHeight="30.0" prefWidth="125.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab fx:id="yatimTab" text="Yatim">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="63.0" layoutY="56.0" text="Nama Panti Asuhan " />
+                  <TextField layoutX="43.0" layoutY="83.0" />
+                  <Label layoutX="64.0" layoutY="125.0" text="Alamat Panti Asuhan " />
+                  <TextField layoutX="43.0" layoutY="151.0" />
+                  <Label layoutX="392.0" layoutY="87.0" text="Saldo Saat Ini " />
+                  <Label fx:id="saldoLabel2" layoutX="392.0" layoutY="116.0" text="Rp " />
+                   <Label fx:id="infaqStatusLabelYatim" layoutX="18.0" layoutY="182.0" />
+                  <Label layoutX="246.0" layoutY="199.0" text="INFAQ ANAK YATIM" />
+                  <Button onAction="#tombolRp1000000Yatim" layoutX="311.0" layoutY="243.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="130.0" text="Biaya Pendidikan &#10;Rp1000.000 " textAlignment="CENTER" />
+                  <Button onAction="#tombolRp200000Yatim" layoutX="171.0" layoutY="243.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="130.0" text="Pakaian &#10;Rp200.000 " textAlignment="CENTER" />
+                  <Button onAction="#tombolRp15000Yatim" layoutX="30.0" layoutY="243.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="130.0" text="Makanan  &#10;Rp15.000 " textAlignment="CENTER" />
+                  <Button onAction="#tombolRp100000Yatim" layoutX="455.0" layoutY="243.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="130.0" text="Uang Saku &#10;Rp100.000" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="qurbanTab" text="Qurban">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="22.0" layoutY="50.0" text="Atas Nama atau Keluarga  " />
+                  <TextField layoutX="13.0" layoutY="81.0" />
+                  <Label layoutX="46.0" layoutY="123.0" text="Alamat Qurban" />
+                  <TextField layoutX="12.0" layoutY="153.0" />
+                  <Label layoutX="403.0" layoutY="94.0" text="Saldo Saat Ini " />
+                   <Label fx:id="infaqStatusLabelQurban" layoutX="18.0" layoutY="182.0" />
+                  <Label fx:id="saldoLabel3" layoutX="403.0" layoutY="123.0" text="Rp" />
+                  <Button onAction="#tombolRp4000000Qurban" layoutX="22.0" layoutY="258.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="127.0" text="Kambing &#10;Rp4.000.000" textAlignment="CENTER" />
+                  <Label layoutX="235.0" layoutY="202.0" text="Mau Qurban Apa " />
+                  <Button onAction="#tombolRp4500000Qurban" layoutX="162.0" layoutY="258.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="127.0" text="Domba &#10;Rp4.500.000" textAlignment="CENTER" />
+                  <Button onAction="#tombolRp20000000Qurban" layoutX="300.0" layoutY="258.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="127.0" text="Sapi &#10;Rp20.000.000" textAlignment="CENTER" />
+                  <Button onAction="#tombolRp50000000Qurban" layoutX="441.0" layoutY="258.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="127.0" text="Sapi Jokowi  &#10;Rp50.000.000" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Invoice">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="275.0" layoutY="28.0" prefHeight="23.0" prefWidth="50.0" text="INVOICE" textAlignment="CENTER" />
+                  <Label layoutX="65.0" layoutY="66.0" prefHeight="18.0" prefWidth="48.0" text="Nama :" />
+                  <Label layoutX="65.0" layoutY="95.0" prefHeight="18.0" prefWidth="84.0" text="Pilihan Infaq :" />
+                  <Label layoutX="65.0" layoutY="126.0" prefHeight="18.0" prefWidth="61.0" text="Nominal :" />
+                  <Button layoutX="63.0" layoutY="161.0" mnemonicParsing="false" text="SAYA SIAP BERINFAQ" />
+                  <Label layoutX="438.0" layoutY="226.0" text="Saldo Saat Ini " />
+                  <Label  layoutX="438.0" layoutY="244.0" prefHeight="29.0" prefWidth="26.0"  />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>
