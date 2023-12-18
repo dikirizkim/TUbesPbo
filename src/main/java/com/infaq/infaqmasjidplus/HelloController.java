@@ -70,6 +70,8 @@ public class HelloController {
     @FXML
     private Label saldoLabel3;
     @FXML
+    private Label InvoiceLabel;
+    @FXML
     private TextField topUpField;
     @FXML
     private Label topUpStatusLabel;
@@ -83,6 +85,7 @@ public class HelloController {
             updateSaldoLabel();
             double saldoTopUpSuccess = topUpAmount;
             System.out.println("Saldo berhasil di-top up: " + topUpAmount);
+            topUpStatusLabel.setStyle("-fx-font-weight: bold; -fx-text-fill: white;");
             topUpStatusLabel.setText("Top-up berhasil");
         } catch (NumberFormatException e) {
             System.out.println("Masukkan jumlah top up yang valid.");
@@ -155,16 +158,18 @@ public class HelloController {
         kurangiSaldoMasjid(100000);
     }
 
-    private void kurangiSaldoMasjid(double jumlah) {
-        if (saldo >= jumlah) {
-            saldo -= jumlah;
+    private void kurangiSaldoMasjid(double jumlah_masjid) {
+        if (saldo >= jumlah_masjid) {
+            saldo -= jumlah_masjid;
             updateSaldoLabel();
             saldoLabel1.setText("Rp " + saldo); // Update label saldo pada tab Masjid
-            infaqStatusLabel.setText("Infaq berhasil: Rp " + jumlah);
-            System.out.println("Saldo Masjid berhasil dikurangi: " + jumlah);
+            infaqStatusLabel.setText("Infaq berhasil: Rp " + jumlah_masjid);
+            System.out.println("Saldo Masjid berhasil dikurangi: " + jumlah_masjid);
+            gantinvoice(jumlah_masjid);
         } else {
             System.out.println("Saldo tidak mencukupi.");
             infaqStatusLabel.setText("Infaq gagal. Saldo tidak mencukupi.");
+            gantinvoice(jumlah_masjid);
         }
         }
     @FXML
@@ -211,16 +216,18 @@ public class HelloController {
     }
     @FXML
     private Label infaqStatusLabelYatim;
-    private void kurangiSaldoYatim(double jumlah) {
-        if (saldo >= jumlah) {
-            saldo -= jumlah;
+    private void kurangiSaldoYatim(double jumlah_yatim) {
+        if (saldo >= jumlah_yatim) {
+            saldo -= jumlah_yatim;
             updateSaldoLabel();
             saldoLabel1.setText("Rp " + saldo); // Update label saldo pada tab Masjid
-            System.out.println("Saldo Yatim berhasil dikurangi: " + jumlah);
-            infaqStatusLabelYatim.setText("Infaq berhasil: Rp" +jumlah );
+            System.out.println("Saldo Yatim berhasil dikurangi: " + jumlah_yatim);
+            infaqStatusLabelYatim.setText("Infaq berhasil: Rp" + jumlah_yatim );
+            gantinvoice(jumlah_yatim);
         } else {
             System.out.println("Saldo tidak mencukupi.");
             infaqStatusLabelYatim.setText("Infaq gagal" );
+            gantinvoice(jumlah_yatim);
         }
     }
 
@@ -253,11 +260,28 @@ public class HelloController {
             saldoLabel1.setText("Rp " + saldo);
             System.out.println("Saldo Qurban berhasil dikurangi: " + jumlah);
             infaqStatusLabelQurban.setText("Qurban berhasil: Rp" +jumlah );
+            gantinvoice(jumlah);
+
         } else {
             System.out.println("Saldo tidak mencukupi.");
             infaqStatusLabelQurban.setText("Qurban berhasil" );
+            gantinvoice(jumlah);
         }
     }
+
+    @FXML
+    private void gantinvoice(double jumlah) {
+        InvoiceLabel.setText(""+ jumlah);
+    }
+
+    @FXML
+    private Label infaqLabel;
+
+    @FXML
+    private void gantiinfaq(double jumlah) {
+        infaqLabel.setText(""+ jumlah);
+    }
+
 
 
 }
